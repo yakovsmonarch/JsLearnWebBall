@@ -37,4 +37,25 @@ function useFilter(){
     console.log(newFrends, " newFrends");
 }
 
-useFilter();
+function myFilter(){
+    const bloggers = [
+        {id: 0, name:"Alex", age: 20},
+        {id: 1, name:"Vitor", age: 30},
+        {id: 2, name:"Diego", age: 40},
+    ];
+
+    const myFilterFunc = (arr, cllBack) => {
+        const newArr = [];
+        for(let i = 0; i < arr.length; i++){
+            const item = arr[i];
+            if(cllBack(item)){
+                newArr.push(item);
+            }
+        }
+        return newArr;
+    }
+
+    console.log("myFilterFunc: ", myFilterFunc(bloggers, (b)=>b.age === 40));
+}
+
+console.log(myFilter());
